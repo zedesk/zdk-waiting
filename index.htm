@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="/bower_components/platform/platform.js"></script>
+    <link rel="import" href="zdk-waiting.htm">
+    <style>
+        body {
+            background-color: #EEEEEE;
+            font-family: Ubuntu, Verdana;
+        }
+        zdk-waiting {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        pre {
+            background-color: white;
+            padding:10px;
+            overflow:auto;
+        }
+    </style>
+</head>
+<body>
+<h1>zdk-waiting</h1>
+<p>the "zdk-waiting" component emulates the loading bar which is used in android applications</p>
+<p>The component is based on the use of the <a href="http://www.polymer-project.org" target="_blank">polymer livrary</a>
+</p>
+<p>to use it, create in your html file body :</p>
+<pre><code>
+    &lt;zdk-waiting&gt;&lt;/zdk-waiting&gt;
+</code></pre>
+<p>and here is the result :</p>
+<zdk-waiting></zdk-waiting>
+<p>The component exposes some attributes :
+<ul>
+    <li>Color</li>
+    <li>backColor</li>
+    <li>segment</li>
+</ul>
+</p>
+<p>Here an example changing the bar color :</p>
+<pre><code>
+    &lt;zdk-waiting color="Tomato"&gt;&lt;/zdk-waiting&gt;
+</code></pre>
+<zdk-waiting color="Tomato"></zdk-waiting>
+<p>another example changing the segment attribute and Color :</p>
+<pre><code>
+    &lt;zdk-waiting segment="10" color="#00cc66"&gt;&lt;/zdk-waiting&gt;
+</code></pre>
+<zdk-waiting segment="10" color="#00cc66"></zdk-waiting>
+
+<p>The component could be manipulated programmatically with javascript</p>
+<pre><code>
+    var bar = document.createElement("zdk-waiting");
+    bar.setAttribute("color","DarkOrange");
+    bar.setAttribute("backcolor","#eeeeee");
+    document.body.appendChild(bar);
+</code></pre>
+
+<script>
+    var bar = document.createElement("zdk-waiting");
+    bar.setAttribute("color", "DarkOrange");
+    bar.setAttribute("backcolor", "#eeeeee");
+    document.body.appendChild(bar);
+</script>
+
+<div>
+    <label for="color">Choose a color for The bar :</label>
+    <input id="color" type="color" value="#00cc66"/>
+</div>
+<div>
+    <label for="segment">Choose number of segment : (<span id="segmentValue">5</span>)</label>
+    <input id="segment" type="range" min="1" max="20" value="5"/>
+</div>
+<zdk-waiting id="wait" color="#00cc66" segment="5"></zdk-waiting>
+
+<script>
+    var wait = document.querySelector("zdk-waiting#wait");
+    var color = document.querySelector("#color");
+    color.addEventListener("change", function () {
+        wait.setAttribute("color", color.value);
+    }, false);
+    var segment = document.querySelector("#segment");
+    segment.addEventListener("change", function () {
+        document.querySelector("#segmentValue").textContent = segment.value;
+        wait.setAttribute("segment", segment.value);
+    })
+</script>
+<pre><code>
+    &lt;label for="color">Choose a color for The bar :&lt;/label&gt;
+    &lt;input id="color" type="color" value="#00cc66"/&gt;
+    &lt;label for="segment">Choose number of segment : (&lt;span id="segmentValue">5&lt;/span>)&lt;/label&gt;
+    &lt;input id="segment" type="range" min="1" max="20" value="5"/&gt;
+    &lt;zdk-waiting id="wait" color="#00cc66" segment="5"&gt;&lt;/zdk-waiting&gt;
+    &lt;script&gt;
+    var wait = document.querySelector("zdk-waiting#wait");
+    var color = document.querySelector("#color");
+    color.addEventListener("change", function () {
+        wait.setAttribute("color", color.value);
+    }, false);
+    var segment = document.querySelector("#segment");
+        segment.addEventListener("change", function () {
+        document.querySelector("#segmentValue").textContent = segment.value;
+        wait.setAttribute("segment", segment.value);
+    });
+    &lt;/script&gt;
+</code></pre>
+</body>
+</html>
