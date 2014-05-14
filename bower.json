@@ -1,6 +1,6 @@
 {
   "name": "zdk-waiting",
-  "version": "0.0.3-pre",
+  "version": "0.0.3",
   "private": false,
   "authors": [
     "Fabrice Le Coz <fabrice.lecoz@zedesk.net>"
