@@ -1,8 +1,26 @@
 {
   "name": "zdk-waiting",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
+  "authors": [
+    "Fabrice Le Coz <fabrice.lecoz@zedesk.net>"
+  ],
+  "description": "A loading bar component",
+  "keywords": [
+    "Polymer",
+    "web-components"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/zedesk/zdk-waiting",
   "dependencies": {
-    "polymer": "Polymer/polymer#~0.2.4"
-  }
+    "polymer": "Polymer/polymer#~0.2.4",
+    "platform": "polymer/platform#~0.2.4"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
 }
