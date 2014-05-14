@@ -1,0 +1,77 @@
+<link rel="import" href="bower_components/polymer/polymer.html" >
+
+<polymer-element name="zdk-waiting" attributes="color backcolor segment">
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+            .bar {
+                position:relative;
+                min-width:500px;
+                height:5px;
+            }
+            .space {
+                position:absolute;
+                width:10px;
+                height:5px;
+                top:0px;
+                left:0px;
+            }
+            @keyframes monanimation {
+                0% {
+                    left: 0px;
+                }
+                100%{
+                    left: 100%;
+                }
+            }
+            @-webkit-keyframes monanimation {
+                0% {
+                    left: 0px;
+                }
+                100%{
+                    left: 100%;
+                }
+            }
+        </style>
+
+    </template>
+    <script>
+        Polymer('zdk-waiting', {
+            color : "rgb(85, 153, 255)",
+            backcolor : "white",
+            segment:5,
+            delay:2,
+            ready: function() {
+                var bar = document.createElement("div");
+                bar.classList.add("bar");
+                bar.setAttribute("style","background:"+this.color);
+                this.shadowRoot.appendChild(bar);
+                this.draw();
+            },
+            segmentChanged: function(oldValue, newValue) {
+                if(newValue === oldValue) return;
+                this.segment = newValue;
+                this.draw();
+            },
+            colorChanged: function(oldValue, newValue) {
+                if(newValue === oldValue) return;
+                this.color = newValue;
+                this.shadowRoot.querySelector(".bar").setAttribute("style","background:"+this.color);
+            },
+            draw: function() {
+                var bar = this.shadowRoot.querySelector(".bar");
+                bar.innerHTML = "";
+                for(var i=0; i< this.segment; i++) {
+                    space = document.createElement("div");
+                    space.classList.add("space");
+                    space.setAttribute("style","background-color:"+this.backcolor+";");
+                    space.style.webkitAnimation = "monanimation 2s ease-in "+((this.delay/this.segment)*i)+"s infinite";
+                    space.style.animation = "monanimation 2s ease-in "+((this.delay/this.segment)*i)+"s infinite";
+                    bar.appendChild(space);
+                }
+            }
+        });
+    </script>
+</polymer-element>

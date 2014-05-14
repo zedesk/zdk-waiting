@@ -1,0 +1,18 @@
+{
+  "name": "zdk-waiting",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.2.4"
+  },
+  "homepage": "https://github.com/zedesk/zdk-waiting",
+  "_release": "25bd348f03",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "25bd348f034e0ba3302ec80f0f0734c98670f2ee"
+  },
+  "_source": "git://github.com/zedesk/zdk-waiting.git",
+  "_target": "master",
+  "_originalSource": "zedesk/zdk-waiting",
+  "_direct": true
+}
